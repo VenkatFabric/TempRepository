@@ -752,6 +752,74 @@
         ]
       },
       {
+        "name": "SalesDept",
+        "sourceLineageTag": "[dbo].[SalesDept]",
+        "columns": [
+          {
+            "name": "EmpId",
+            "dataType": "int64",
+            "sourceColumn": "EmpId",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "EmpId",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "EmpName",
+            "dataType": "string",
+            "sourceColumn": "EmpName",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "EmpName",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "EmpSalary",
+            "dataType": "int64",
+            "sourceColumn": "EmpSalary",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "EmpSalary",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "SalesDept",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
         "name": "Time",
         "sourceLineageTag": "[dbo].[Time]",
         "columns": [
